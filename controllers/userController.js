@@ -60,6 +60,44 @@ const userController = {
             res.status(500).json(error);
         }
     },
+
+    // Add a friend to a user's friend list
+    addFriend: async (req, res) => {
+        try {
+            const user = await User.findByIdAndUpdate(
+                req.params.id,
+                { $addToSet: { friends: req.params.friendId } },
+                { new: true, runValidators: true }
+            );
+
+            if (!user) {
+                return res.status(404).json({ message: 'No user found with this id!' });
+            }
+
+            res.json(user);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
+
+    // Delete a friend from a user's friend list
+    deleteFriend: async (req, res) => {
+        try {
+            const user = await User.findByIdAndUpdate(
+                req.params.id,
+                { $pull: { friends: req.params.friendId } },
+                { new: true, runValidators: true }
+            );
+
+            if (!user) {
+                return res.status(404).json({ message: 'No user found with this id!' });
+            }
+
+            res.json(user);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    }
 };
 
 module.exports = userController;

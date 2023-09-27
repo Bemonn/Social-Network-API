@@ -57,6 +57,40 @@ const thoughtController = {
             res.status(500).json(error);
         }
     },
+
+    // Add a reaction to a thought
+    addReaction: async (req, res) => {
+        try {
+            const thought = await Thought.findByIdAndUpdate(
+                req.params.thoughtId,
+                { $push: { reactions: req.body } },
+                { new: true, runValidators: true }
+            );
+            if (!thought) {
+                return res.status(404).json({ message: 'No thought found with this id!' });
+            }
+            res.json(thought);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
+
+    // Delete a reaction from a thought
+    deleteReaction: async (req, res) => {
+        try {
+            const thought = await Thought.findByIdAndUpdate(
+                req.params.thoughtId,
+                { $pull: { reactions: { _id: req.params.reactionId } } },
+                { new: true }
+            );
+            if (!thought) {
+                return res.status(404).json({ message: 'No thought found with this id!' });
+            }
+            res.json(thought);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
 };
 
 module.exports = thoughtController;
