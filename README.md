@@ -44,6 +44,10 @@
 
   DEL `/api/users/:id` (Delete a user)
 
+  - Example:
+
+    ![image](https://github.com/Bemonn/Social-Network-API/assets/132788160/8c679931-0c42-4ef5-a11d-c4ee3c3d61a4)
+
 
   #### Thought Requests
 
@@ -57,18 +61,31 @@
 
   DEL `/api/thoughts/:id` (Delete a thought)
 
+  - Example:
+    
+    ![image](https://github.com/Bemonn/Social-Network-API/assets/132788160/1034fc27-9ed8-4862-8664-2966a18e9583)
+
   #### Friend Requests
 
   POST `/api/users/:id/friends/:friends id` (Add a friend)
 
   DEL `/api/thoughts/:id/reactions/:friends id` (Delete a friend)
 
+  - Example:
+    
+    ![image](https://github.com/Bemonn/Social-Network-API/assets/132788160/dc29ad75-90ab-4107-973a-c977f183d136)
+
+  #### Reaction Requests
+
   Post `/api/thoughts/:id/reactions` (Add a reaction)
 
   DEL `/api/thoughts/:id/reactions/reactions :id` (Delete a reaction)
 
-  Refer to [Video](#video) for more help
+  - Example:
+    
+    ![image](https://github.com/Bemonn/Social-Network-API/assets/132788160/d584eac4-555e-498a-9e5c-1a453b05ff10)
 
+  Refer to [Video](#video) for more help
 
   
 ## Contributing
