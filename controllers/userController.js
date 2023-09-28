@@ -1,35 +1,35 @@
 const { User } = require('../models');
 
 const userController = {
-    // Get all users
-    getAllUsers: async (req, res) => {
-        try {
-            const users = await User.find({})
-                                    .populate({
-                                        path: 'thoughts',
-                                        select: '-__v'
-                                    })
-                                    .select('-__v');
-            res.json(users);
-        } catch (error) {
-            res.status(500).json(error);
-        }
-    },
-    
-    // Get a user by id
-    getUserById: async (req, res) => {
-        try {
-            const user = await User.findOne({ _id: req.params.id })
-                                   .populate({
-                                       path: 'thoughts',
-                                       select: '-__v'
-                                   })
-                                   .select('-__v');
-            res.json(user);
-        } catch (error) {
-            res.status(500).json(error);
-        }
-    },
+  // Get all users
+  getAllUsers: async (req, res) => {
+    try {
+      const users = await User.find({})
+        .populate({
+          path: 'thoughts',
+          select: '-__v'
+        })
+        .select('-__v');
+      res.json(users);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
+  // Get a user by id
+  getUserById: async (req, res) => {
+    try {
+      const user = await User.findOne({ _id: req.params.id })
+        .populate({
+          path: 'thoughts',
+          select: '-__v'
+        })
+        .select('-__v');
+      res.json(user);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
 
     // Create a new user
     createUser: async (req, res) => {

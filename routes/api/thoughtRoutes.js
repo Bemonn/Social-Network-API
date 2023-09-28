@@ -22,7 +22,7 @@ router
     .put(updateThought)
     .delete(deleteThought);
 
-// New route for handling POST requests to add reactions to thoughts
+// Route for posting/deleting reactions, /api/thoughts/:id/reactions
 router
     .route('/:thoughtId/reactions/:reactionId?')
     .post(addReaction)
