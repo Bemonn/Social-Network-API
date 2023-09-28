@@ -1,6 +1,18 @@
 // Importing mongoose library
 const mongoose = require('mongoose');
 
+// Function to format date
+const dateFormat = (timestamp) => {
+    return timestamp.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+};
+
 // Defining the schema for reactions
 const reactionSchema = new mongoose.Schema(
   {
@@ -20,6 +32,7 @@ const reactionSchema = new mongoose.Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: dateFormat
     },
   },
   {
@@ -41,6 +54,7 @@ const thoughtSchema = new mongoose.Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: dateFormat 
     },
     username: {
       type: String,
