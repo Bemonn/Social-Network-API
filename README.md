@@ -4,7 +4,7 @@
 
 ## Description
 
-  Social network api is a functional api that has a NoSQL structure in order to deal with large amounts of unorganised information in a website or similar scenario.
+  Social network api is a functional api that has a NoSQL structure in order to deal with large amounts of unorganised information in a website or similar scenario. This api allows for users to be made containing info like a name and email, thoughts are then able to be made that are attached to users and given info, reactions can then be made to thoughts by users that also contain info, users can also have friends added and removed. All of the previously mentioned items are given id's that can be used for various requests as listed in [Usage](#usage).
 
   It has various features depicted in [Usage](#usage) and also displayed in [Video](#video).
 
