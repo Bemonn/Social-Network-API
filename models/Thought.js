@@ -16,10 +16,6 @@ const dateFormat = (timestamp) => {
 // Defining the schema for reactions
 const reactionSchema = new mongoose.Schema(
   {
-    reactionId: {
-      type: mongoose.Schema.Types.ObjectId,
-      default: () => new mongoose.Types.ObjectId(),
-    },
     reactionBody: {
       type: String,
       required: true,
@@ -35,11 +31,6 @@ const reactionSchema = new mongoose.Schema(
       get: dateFormat
     },
   },
-  {
-    toJSON: {
-      getters: true,
-    },
-  }
 );
 
 // Defining the schema for thoughts
